@@ -36,6 +36,7 @@ class ConversionController extends Controller
 
         $input = $request->all();
         $input['user_id'] = auth()->id();
+        $input['base_amount'] = $baseCurrencyAmount;
         $input['converted_amount'] = $convertedAmount;
  
         $this->repository->store($input);

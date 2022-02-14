@@ -26,6 +26,7 @@ class HomeController extends Controller
     {
         $data['popularDestination'] = Convertion::max('to_currency');
         $data['totalRequest'] = Convertion::get()->count();
+        $data['convertedAmount'] = Convertion::sum('base_amount');
         return view('home',$data);
     }
 }
