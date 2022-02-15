@@ -14,7 +14,7 @@ class ConversionTest extends TestCase
      *
      * @return void
      */
-    public function test_example()
+    public function test_api_has_value()
     {
         $client = new \GuzzleHttp\Client();
         $request = $client->get('http://apilayer.net/api/live?access_key=efe459e8db765f08b29c65ea562c4f9a&source=USD');
@@ -24,6 +24,6 @@ class ConversionTest extends TestCase
         $currencies = json_decode($str, true);
 
 
-        $this->assertContains($currencies['quotes']);
+        $this->assertArrayHasKey('USDGBP', $currencies['quotes']);
     }
 }
