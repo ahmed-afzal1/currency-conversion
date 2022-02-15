@@ -31,3 +31,4 @@ Route::name('conversion.')->group(function(){
 
 
 Route::get('/home', [HomeController::class,'index'])->name('home');
+Route::get('/logout', [HomeController::class,'logout'])->name('logout');

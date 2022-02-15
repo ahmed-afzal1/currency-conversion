@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Convertion;
 use Illuminate\Http\Request;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -28,5 +29,11 @@ class HomeController extends Controller
         $data['totalRequest'] = Convertion::get()->count();
         $data['convertedAmount'] = Convertion::sum('base_amount');
         return view('home',$data);
+    }
+
+    public function logout()
+    {
+        Auth::guard('web')->logout();
+        return redirect('/');
     }
 }
